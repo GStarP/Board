@@ -1,4 +1,3 @@
-
 const path = require("path");
 
 function resolve(filename) {
@@ -14,9 +13,12 @@ module.exports = {
     open: true,
     port: 8088,
     proxy: {
-      '/api': {
-        target: 'http://localhost:8089',
-        changeOrigin: true
+      "/api": {
+        target: "http://localhost:8089",
+        changeOrigin: true,
+        pathRewrite: {
+          "/api": "/"
+        }
       }
     }
   }
