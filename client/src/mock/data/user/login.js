@@ -1,6 +1,6 @@
 module.exports = {
-  'POST': {
+  POST: {
     code: 200,
-    msg: '登陆成功'
+    msg: "登陆成功"
   }
-}
+};
