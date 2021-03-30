@@ -1,23 +1,20 @@
 <template>
   <div class="home">
-    <el-button @click="onClick">HXWNB</el-button>
+    <desktop>
+      <dice />
+      <dice :max="12" />
+    </desktop>
   </div>
 </template>
 
 <script>
-import { login } from '@/api/user.js'
+import Desktop from "@/components/Desktop.vue";
+import Dice from "@/components/items/Dice.vue";
+
 export default {
-  methods: {
-    onClick() {
-      login('admin', '123456').then(res => {
-        console.log(res)
-        if (res.code === 200) {
-          this.$message.success(res.msg)
-        } else {
-          this.$message.error(res.msg)
-        }
-      })
-    }
+  components: {
+    Desktop,
+    Dice
   }
 };
 </script>
