@@ -10,12 +10,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .desktop {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
-  box-sizing: border-box;
-  padding: 64px;
+  $squareSize: 25px;
+  background: -webkit-linear-gradient(
+      top,
+      transparent $squareSize - 1px,
+      #dadce0 0
+    ),
+    -webkit-linear-gradient(left, transparent $squareSize - 1px, #dadce0 0);
+  background-size: $squareSize $squareSize;
 }
 </style>
