@@ -32,16 +32,27 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  z-index: 101;
 }
 .header {
   border-bottom: 1px solid #dadce0;
+
+  background: #FFF;
+
+  z-index: 101;
 }
 .main {
   flex: 1;
   display: flex;
+
+  z-index: 1;
 }
 .aside {
   height: 100%;
+  background: #FFF;
+  z-index: 101;
+  
   &-left {
     border-right: 1px solid #dadce0;
   }

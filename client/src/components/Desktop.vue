@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop">
+  <div id="desktop">
     <slot />
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss">
-.desktop {
+#desktop {
   width: 100%;
   height: 100%;
 
