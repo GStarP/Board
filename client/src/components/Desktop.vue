@@ -1,12 +1,24 @@
 <template>
   <div id="desktop">
-    <slot />
+    <div class="desktop__main" :style="style">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  //
+  computed: {
+    config() {
+      return this.$store.state.board.desktop;
+    },
+    style() {
+      return {
+        width: this.config.width + "px",
+        height: this.config.height + "px"
+      };
+    }
+  }
 };
 </script>
 
@@ -14,7 +26,10 @@ export default {
 #desktop {
   width: 100%;
   height: 100%;
-
+  overflow: scroll;
+}
+.desktop__main {
+  // 格子背景
   $squareSize: 25px;
   background: -webkit-linear-gradient(
       top,

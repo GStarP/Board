@@ -14,9 +14,9 @@ Vue.directive("drag", {
         let l = e.clientX - inL;
         let t = e.clientY - inT;
         // 当移动超过桌面范围时忽略
-        const desktop = document.getElementById('desktop')
+        const desktop = document.getElementById("desktop");
         if (l < desktop.offsetLeft || t < desktop.offsetTop) {
-          return
+          return;
         }
 
         el.style.left = `${l}px`;

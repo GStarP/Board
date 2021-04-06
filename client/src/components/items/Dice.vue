@@ -1,27 +1,34 @@
 <template>
   <div v-drag class="dice">
     <div class="dice__txt">{{ value }}</div>
-    <div class="dice__btn" @click="rd">ROLL</div>
+    <div class="dice__btn" @click="randomValue">ROLL</div>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    max: {
-      default: 6,
-      type: Number
-    }
-  },
+import Vue from "vue";
+export default Vue.extend({
+  name: "dice",
+  props: ["d"],
   data() {
     return {
-      value: 1
+      value: this.d.value
     };
   },
   methods: {
-    rd() {
+    packup() {
+      return {
+        type: "dice"
+      };
+    },
+    randomValue() {
       // 投出点数
-      const result = Math.ceil(Math.random() * this.max);
+      const result = Math.ceil(Math.random() * this.d.max);
+      this.$store.commit("updateItem", {
+        idx: this.d.idx,
+        attr: "value",
+        val: result
+      });
       // 动画效果
       setTimeout(() => {
         this.value = "#";
@@ -34,7 +41,7 @@ export default {
       }, 200);
     }
   }
-};
+});
 </script>
 
 <style lang="scss">
