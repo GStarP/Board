@@ -1,7 +1,8 @@
 <template>
   <div v-drag class="dice" :style="style">
     <div class="dice__txt">{{ value }}</div>
-    <div class="dice__btn" @click="randomValue">ROLL</div>
+    <!-- 阻止 mousedown 冒泡以防触发父元素 v-drag 的响应事件 -->
+    <div class="dice__btn" @mousedown.stop @click="randomValue">ROLL</div>
   </div>
 </template>
 

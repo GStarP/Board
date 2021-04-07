@@ -33,7 +33,7 @@ export default new Vuex.Store({
         ...state.board.items[newConfig.idx],
         ...newConfig
       };
-      console.log(state);
+      console.log(state.board.items);
     },
     deleteItem(state, item) {
       const idx = item.idx;

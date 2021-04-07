@@ -22,8 +22,10 @@ Vue.directive("drag", {
       let inL = e.clientX - el.offsetLeft;
       let inT = e.clientY - el.offsetTop;
       // 元素相对于 #desktop 的左/上边距
-      let l = el.style.left;
-      let t = el.style.top;
+      let l = Number.parseInt(
+        el.style.left.substr(0, el.style.left.length - 2)
+      );
+      let t = Number.parseInt(el.style.top.substr(0, el.style.top.length - 2));
 
       const desktop = document.getElementById("desktop");
 
@@ -35,7 +37,7 @@ Vue.directive("drag", {
         if (l < 0 || t < 0) {
           return;
         }
-
+        // 移动元素
         el.style.left = `${l}px`;
         el.style.top = `${t}px`;
       };
@@ -44,11 +46,11 @@ Vue.directive("drag", {
       document.onmouseup = () => {
         document.onmousemove = null;
         document.onmouseup = null;
-        // 更新 vuex 中的元素状态
+        // 更新 vuex 中的元素位置状态
         store.commit("updateItem", {
           idx: Number.parseInt(el.getAttribute("idx")),
-          left: l,
-          top: t
+          x: l,
+          y: t
         });
       };
     };

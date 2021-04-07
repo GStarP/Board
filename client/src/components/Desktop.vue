@@ -14,8 +14,8 @@ export default {
     },
     style() {
       return {
-        width: this.config.width + "px",
-        height: this.config.height + "px"
+        width: `${this.config.width}px`,
+        height: `${this.config.height}px`
       };
     }
   }
