@@ -1,5 +1,5 @@
 <template>
-  <div v-drag class="dice">
+  <div v-drag class="dice" :style="style">
     <div class="dice__txt">{{ value }}</div>
     <div class="dice__btn" @click="randomValue">ROLL</div>
   </div>
@@ -26,8 +26,7 @@ export default Vue.extend({
       const result = Math.ceil(Math.random() * this.d.max);
       this.$store.commit("updateItem", {
         idx: this.d.idx,
-        attr: "value",
-        val: result
+        value: result
       });
       // 动画效果
       setTimeout(() => {
@@ -40,19 +39,31 @@ export default Vue.extend({
         this.value = result;
       }, 200);
     }
+  },
+  computed: {
+    style() {
+      return {
+        left: `${this.d.x}px`,
+        top: `${this.d.y}px`
+      };
+    }
   }
 });
 </script>
 
 <style lang="scss">
 .dice {
+  $size: 48px;
+  width: $size;
+
   display: flex;
   flex-direction: column;
+
+  position: relative;
 
   background: #fff;
 
   &__txt {
-    $size: 48px;
     width: $size;
     height: $size;
     border: #000 solid 2px;
@@ -71,6 +82,7 @@ export default Vue.extend({
   }
 
   &__btn {
+    width: $size;
     border: #000 solid 2px;
     border-top: none;
 

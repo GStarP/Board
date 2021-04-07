@@ -15,7 +15,9 @@ export default new Vuex.Store({
           idx: 0,
           type: "dice",
           max: 6,
-          value: 3
+          value: 3,
+          x: 20,
+          y: 20
         }
       ]
     }
@@ -26,8 +28,12 @@ export default new Vuex.Store({
       item.idx = idx;
       state.board.items.push(item);
     },
-    updateItem(state, payload) {
-      state.board.items[payload.idx][payload.attr] = payload.val;
+    updateItem(state, newConfig) {
+      state.board.items[newConfig.idx] = {
+        ...state.board.items[newConfig.idx],
+        ...newConfig
+      };
+      console.log(state);
     },
     deleteItem(state, item) {
       const idx = item.idx;

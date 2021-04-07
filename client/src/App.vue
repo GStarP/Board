@@ -24,6 +24,10 @@ body,
     "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 // 美化滚动条
 ::-webkit-scrollbar {
   background-color: #eee;

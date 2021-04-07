@@ -1,5 +1,5 @@
 <template>
-  <component :is="d.type" v-bind="$props" />
+  <component :is="d.type" :idx="d.idx" v-bind="$props" />
 </template>
 
 <script>
