@@ -12,12 +12,14 @@ export default new Vuex.Store({
       },
       items: [
         {
+          // 公有属性
           idx: 0,
+          x: 20,
+          y: 20,
+          // 特有属性
           type: "dice",
           max: 6,
-          value: 3,
-          x: 20,
-          y: 20
+          value: 3
         }
       ]
     }

@@ -38,4 +38,14 @@ div {
 ::-webkit-scrollbar-thumb {
   background-color: #aaa;
 }
+
+.flex {
+  display: flex;
+}
+.r-center {
+  justify-content: center;
+}
+.c-center {
+  align-items: center;
+}
 </style>
