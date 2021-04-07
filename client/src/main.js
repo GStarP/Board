@@ -31,11 +31,11 @@ Vue.directive("drag", {
 
       // 鼠标移动时元素跟随移动
       document.onmousemove = e => {
-        l = e.clientX - desktop.offsetLeft - inL;
-        t = e.clientY - desktop.offsetTop - inT;
-        // 当移动超过桌面范围时忽略
+        l = e.clientX - inL;
+        t = e.clientY - inT;
+        // 鼠标移动超过桌面范围时忽略
         if (l < 0 || t < 0) {
-          return;
+          return false;
         }
         // 移动元素
         el.style.left = `${l}px`;
@@ -47,6 +47,8 @@ Vue.directive("drag", {
         document.onmousemove = null;
         document.onmouseup = null;
         // 更新 vuex 中的元素位置状态
+        l = l < 0 ? 0 : l;
+        t = t < 0 ? 0 : t;
         store.commit("updateItem", {
           idx: Number.parseInt(el.getAttribute("idx")),
           x: l,

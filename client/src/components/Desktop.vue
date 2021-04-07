@@ -29,6 +29,7 @@ export default {
   overflow: auto;
 }
 .desktop__main {
+  position: relative;
   // 格子背景
   $squareSize: 25px;
   background: -webkit-linear-gradient(

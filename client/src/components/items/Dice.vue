@@ -60,7 +60,7 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
 
-  position: relative;
+  position: absolute;
 
   background: #fff;
 
