@@ -24,7 +24,6 @@ export default {
     };
   },
   methods: {
-    // TODO relative 文档流引起的位置问题
     addDice() {
       const newDice = {
         idx: -1,
