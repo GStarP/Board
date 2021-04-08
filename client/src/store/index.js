@@ -14,15 +14,25 @@ export default new Vuex.Store({
         {
           // 公有属性
           idx: 0,
-          x: 20,
-          y: 20,
+          x: 0,
+          y: 0,
           // 特有属性
           type: "dice",
           max: 6,
           value: 3
+        },
+        {
+          idx: 1,
+          x: 50,
+          y: 0,
+          width: 100,
+          height: 62,
+          type: "text-box",
+          value: "hxwnb"
         }
       ]
-    }
+    },
+    curItemIdx: -1
   },
   mutations: {
     addItem: (state, item) => {
@@ -43,6 +53,10 @@ export default new Vuex.Store({
         state.board.items[i].idx--;
       }
       state.board.items.splice(idx, 1);
+    },
+    selectItem(state, idx) {
+      state.curItemIdx = idx;
+      console.log("current item: " + state.curItemIdx);
     }
   }
 });

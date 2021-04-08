@@ -1,5 +1,5 @@
 <template>
-  <div v-drag class="dice" :style="style">
+  <div v-drag class="dice">
     <div class="dice__txt">{{ value }}</div>
     <!-- 阻止 mousedown 冒泡以防触发父元素 v-drag 的响应事件 -->
     <div class="dice__btn" @mousedown.stop @click="randomValue">ROLL</div>
@@ -40,14 +40,6 @@ export default Vue.extend({
         this.value = result;
       }, 200);
     }
-  },
-  computed: {
-    style() {
-      return {
-        left: `${this.d.x}px`,
-        top: `${this.d.y}px`
-      };
-    }
   }
 });
 </script>
@@ -59,8 +51,6 @@ export default Vue.extend({
 
   display: flex;
   flex-direction: column;
-
-  position: absolute;
 
   background: #fff;
 

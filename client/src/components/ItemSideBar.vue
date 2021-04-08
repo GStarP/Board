@@ -1,9 +1,10 @@
 <template>
   <div class="side-bar__item">
     <el-collapse v-model="activeMenu">
-      <el-collapse-item title="基本图形" name="shape">
-        <div class="flex r-center c-center" style="width: 100%; height: 64px;">
-          暂无
+      <el-collapse-item title="基础元素" name="basic">
+        <div class="menu-item" @click="addTextBox">
+          <img class="menu-item__icon" src="../assets/imgs/icon-text-box.png" />
+          <span class="menu-item__text">文本框</span>
         </div>
       </el-collapse-item>
       <el-collapse-item title="桌游元素" name="board">
@@ -20,7 +21,7 @@
 export default {
   data() {
     return {
-      activeMenu: ["board"]
+      activeMenu: ["basic", "board"]
     };
   },
   methods: {
@@ -34,6 +35,18 @@ export default {
         value: 1
       };
       this.$store.commit("addItem", newDice);
+    },
+    addTextBox() {
+      const newTextBox = {
+        idx: -1,
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 62,
+        type: "text-box",
+        value: "请输入"
+      };
+      this.$store.commit("addItem", newTextBox);
     }
   }
 };

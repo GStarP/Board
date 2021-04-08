@@ -1,6 +1,6 @@
 <template>
   <div id="desktop">
-    <div class="desktop__main" :style="style">
+    <div class="desktop__main" :style="style" @click="unblurItem">
       <slot />
     </div>
   </div>
@@ -8,6 +8,14 @@
 
 <script>
 export default {
+  methods: {
+    // 当点击无 Item 的 desktop 空档处时, 应当没有一个 Item 被选中
+    unblurItem(e) {
+      if (e.target.className === "desktop__main") {
+        this.$store.commit("selectItem", -1);
+      }
+    }
+  },
   computed: {
     config() {
       return this.$store.state.board.desktop;
