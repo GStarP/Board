@@ -6,7 +6,8 @@ import {
   Aside,
   Collapse,
   CollapseItem,
-  Input
+  Input,
+  Button
 } from "element-ui";
 import { Message } from "element-ui";
 
@@ -19,3 +20,4 @@ Vue.use(Aside);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Input);
+Vue.use(Button);

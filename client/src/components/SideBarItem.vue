@@ -73,6 +73,8 @@ export default {
 
       border-bottom: 1px solid #ebeef5;
 
+      color: rgba(#000, 0.65);
+
       &:hover {
         cursor: pointer;
         background: #eee;
@@ -93,7 +95,6 @@ export default {
     .el-collapse-item__header {
       padding-left: 1rem;
       font-size: 15px;
-      font-weight: 600;
     }
     .el-collapse-item__wrap {
       border-top: 1px solid #ebeef5;

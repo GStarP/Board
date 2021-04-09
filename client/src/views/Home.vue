@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <div class="header" style="height: 80px"></div>
+    <div class="header" style="height: 80px">
+      <top-bar />
+    </div>
     <div class="main">
       <div class="aside aside-left" style="width: 180px">
         <side-bar-item />
@@ -27,12 +29,14 @@
 import Desktop from "@/components/Desktop.vue";
 import SideBarItem from "@/components/SideBarItem.vue";
 import SideBarConfig from "@/components/SideBarConfig.vue";
+import TopBar from "@/components/TopBar.vue";
 
 export default {
   components: {
     Desktop,
     SideBarItem,
-    SideBarConfig
+    SideBarConfig,
+    TopBar
   },
   computed: {
     board() {
