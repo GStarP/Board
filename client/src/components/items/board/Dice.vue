@@ -40,6 +40,11 @@ export default Vue.extend({
         this.value = result;
       }, 200);
     }
+  },
+  watch: {
+    "d.value"(v) {
+      this.value = v;
+    }
   }
 });
 </script>

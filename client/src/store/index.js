@@ -35,24 +35,37 @@ export default new Vuex.Store({
     curItemIdx: -1
   },
   mutations: {
+    updateDesktop(state, newConfig) {
+      state.board.desktop = {
+        ...state.board.desktop,
+        ...newConfig
+      };
+      console.log(state.board.desktop);
+    },
     addItem: (state, item) => {
-      const idx = state.board.items.length;
+      const copy = state.board.items.slice();
+      const idx = copy.length;
       item.idx = idx;
-      state.board.items.push(item);
+      copy.push(item);
+      state.board.items = copy;
     },
     updateItem(state, newConfig) {
-      state.board.items[newConfig.idx] = {
+      const copy = state.board.items.slice();
+      copy[newConfig.idx] = {
         ...state.board.items[newConfig.idx],
         ...newConfig
       };
+      state.board.items = copy;
       console.log(state.board.items);
     },
     deleteItem(state, item) {
+      const copy = state.board.items.slice();
       const idx = item.idx;
-      for (let i = idx + 1; i < state.board.state.items.length; i++) {
-        state.board.items[i].idx--;
+      for (let i = idx + 1; i < copy.length; i++) {
+        copy[i].idx--;
       }
-      state.board.items.splice(idx, 1);
+      copy.splice(idx, 1);
+      state.board.items = copy;
     },
     selectItem(state, idx) {
       state.curItemIdx = idx;

@@ -12,6 +12,10 @@
           <span class="menu-item__text">骰子</span>
           <i class="el-icon-plus" />
         </div>
+        <div class="menu-item">
+          <span class="menu-item__text">计数器</span>
+          <i class="el-icon-plus" />
+        </div>
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -67,6 +71,8 @@ export default {
 
       padding: 0 1rem;
 
+      border-bottom: 1px solid #ebeef5;
+
       &:hover {
         cursor: pointer;
         background: #eee;
@@ -91,6 +97,7 @@ export default {
     }
     .el-collapse-item__wrap {
       border-top: 1px solid #ebeef5;
+      border-bottom: none;
     }
     .el-collapse-item__content {
       padding-bottom: 0;

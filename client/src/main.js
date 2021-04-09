@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./plugins/element";
 import "./components/items/index";
+import "./components/configs/index";
 import { removepx } from "@/utils/format";
 
 Vue.config.productionTip = false;

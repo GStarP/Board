@@ -3,7 +3,7 @@
     <div class="header" style="height: 80px"></div>
     <div class="main">
       <div class="aside aside-left" style="width: 180px">
-        <item-side-bar />
+        <side-bar-item />
       </div>
       <div class="main">
         <desktop>
@@ -15,7 +15,9 @@
           />
         </desktop>
       </div>
-      <div class="aside aside-right" style="width: 180px"></div>
+      <div class="aside aside-right" style="width: 180px">
+        <side-bar-config />
+      </div>
     </div>
     <div class="footer" style="height: 24px"></div>
   </div>
@@ -23,12 +25,14 @@
 
 <script>
 import Desktop from "@/components/Desktop.vue";
-import ItemSideBar from "@/components/ItemSideBar.vue";
+import SideBarItem from "@/components/SideBarItem.vue";
+import SideBarConfig from "@/components/SideBarConfig.vue";
 
 export default {
   components: {
     Desktop,
-    ItemSideBar
+    SideBarItem,
+    SideBarConfig
   },
   computed: {
     board() {
