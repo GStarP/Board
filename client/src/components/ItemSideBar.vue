@@ -3,14 +3,14 @@
     <el-collapse v-model="activeMenu">
       <el-collapse-item title="基础元素" name="basic">
         <div class="menu-item" @click="addTextBox">
-          <img class="menu-item__icon" src="../assets/imgs/icon-text-box.png" />
           <span class="menu-item__text">文本框</span>
+          <i class="el-icon-plus" />
         </div>
       </el-collapse-item>
       <el-collapse-item title="桌游元素" name="board">
         <div class="menu-item" @click="addDice">
-          <img class="menu-item__icon" src="../assets/imgs/icon-dice.png" />
           <span class="menu-item__text">骰子</span>
+          <i class="el-icon-plus" />
         </div>
       </el-collapse-item>
     </el-collapse>
@@ -59,38 +59,25 @@ export default {
     flex-direction: column;
 
     .menu-item {
-      $width: 72px;
-      $height: 72px;
-      $margin: (180px - 2 * $width) / 3;
-      $itemtextHeight: 16px;
-      $itemInsideMargin: 4px;
-
-      width: $width;
-      height: $height;
-      margin: 8px $margin;
-      :nth-child(even) {
-        margin-left: 0;
-      }
+      $h: 36px;
+      height: $h;
 
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+
+      padding: 0 1rem;
 
       &:hover {
         cursor: pointer;
         background: #eee;
       }
 
-      &__icon {
-        height: $height - $itemtextHeight - 2 * $itemInsideMargin;
-        margin: $itemInsideMargin 0;
-      }
-
       &__text {
         font-size: 14px;
-        height: $itemtextHeight;
-        line-height: $itemtextHeight;
+      }
+
+      i {
+        margin-left: auto;
       }
     }
 
@@ -100,13 +87,13 @@ export default {
     .el-collapse-item__header {
       padding-left: 1rem;
       font-size: 15px;
+      font-weight: 600;
     }
     .el-collapse-item__wrap {
       border-top: 1px solid #ebeef5;
     }
     .el-collapse-item__content {
       padding-bottom: 0;
-      min-height: 64px;
     }
   }
 }
